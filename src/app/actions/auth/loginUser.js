@@ -3,6 +3,7 @@ import dbConnect from "@/lib/dbConnect";
 import bcrypt from "bcrypt";
 export const loginUser = async (payload) => {
   const { email, password } = payload;
+  console.log(payload);
 
   const userCollection = dbConnect("users");
 

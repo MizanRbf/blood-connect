@@ -63,7 +63,7 @@ const LoginForm = () => {
         type="submit"
         className="text-white font-bold rounded-sm px-3 py-2 bg-[#003b3d] w-full cursor-pointer"
       >
-        Login
+        {loading ? "Processing..." : "Login"}
       </button>
     </form>
   );

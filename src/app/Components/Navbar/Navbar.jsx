@@ -1,18 +1,23 @@
+"use client";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
+import { signOut } from "next-auth/react";
 
 const Navbar = () => {
+  const { data: session, status } = useSession();
   return (
     <div className="flex items-center justify-between py-4 max-w-[1500px] mx-auto px-4 bg-black">
       <h1 className="text-white">BloodConnect</h1>
-      <div className="">
+      {session ? (
+        <button className="button mr-4" onClick={() => signOut()}>
+          Logout
+        </button>
+      ) : (
         <Link className="button mr-4" href="/login">
           Login
         </Link>
-        <Link className="button " href="/register">
-          Register
-        </Link>
-      </div>
+      )}
     </div>
   );
 };

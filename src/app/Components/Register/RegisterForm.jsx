@@ -12,8 +12,19 @@ const RegisterForm = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-
-    const result = await registerUser({ name, email, password });
+    const age = form.age.value;
+    const bloodGroup = form.bloodGroup.value;
+    const number = form.number.value;
+    const location = form.location.value;
+    const result = await registerUser({
+      name,
+      email,
+      password,
+      age,
+      bloodGroup,
+      number,
+      location,
+    });
 
     if (result.success) {
       Swal.fire({
@@ -57,12 +68,36 @@ const RegisterForm = () => {
         type="password"
         name="password"
         className="bg-white p-3 rounded-sm w-full"
-        placeholder="Password"
+        placeholder="Create A Password"
+      />
+      <input
+        type="number"
+        name="age"
+        className="bg-white p-3 rounded-sm w-full"
+        placeholder="Your Age"
+      />
+      <input
+        type="text"
+        name="bloodGroup"
+        className="bg-white p-3 rounded-sm w-full"
+        placeholder="Blood Group"
+      />
+      <input
+        type="text"
+        name="number"
+        className="bg-white p-3 rounded-sm w-full"
+        placeholder="Contact Number"
+      />
+      <input
+        type="text"
+        name="location"
+        className="bg-white p-3 rounded-sm w-full"
+        placeholder="Location"
       />
 
       <button
         type="submit"
-        className="text-white font-bold rounded-sm px-3 py-2 bg-[#003b3d] w-full"
+        className="text-white font-bold rounded-sm px-3 py-2 bg-[#003b3d] w-full cursor-pointer"
       >
         Register
       </button>

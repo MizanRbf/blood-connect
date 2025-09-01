@@ -10,5 +10,6 @@ export default function dbConnect(collectionName) {
       deprecationErrors: true,
     },
   });
+
   return client.db(process.env.DB_NAME).collection(collectionName);
 }
