@@ -1,8 +1,11 @@
 "use client";
 import { registerUser } from "@/app/actions/auth/registerUser";
+import { useRouter } from "next/navigation";
 import React from "react";
+import Swal from "sweetalert2";
 
 const RegisterForm = () => {
+  const router = useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -13,9 +16,21 @@ const RegisterForm = () => {
     const result = await registerUser({ name, email, password });
 
     if (result.success) {
-      alert("success");
+      Swal.fire({
+        icon: "success",
+        title: "Registration Successful",
+        text: "You can now login",
+        confirmButtonText: "OK",
+      }).then(() => {
+        router.push("/login");
+      });
     } else {
-      alert("something wrong");
+      Swal.fire({
+        icon: "error",
+        title: "Registration Failed",
+        text: result.message || "Something went wrong",
+        confirmButtonText: "OK",
+      });
     }
   };
   return (
