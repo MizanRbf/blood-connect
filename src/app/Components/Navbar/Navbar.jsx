@@ -7,17 +7,19 @@ import { signOut } from "next-auth/react";
 const Navbar = () => {
   const { data: session, status } = useSession();
   return (
-    <div className="flex items-center justify-between py-4 max-w-[1500px] mx-auto px-4 bg-black">
-      <h1 className="text-white">BloodConnect</h1>
-      {session ? (
-        <button className="button mr-4" onClick={() => signOut()}>
-          Logout
-        </button>
-      ) : (
-        <Link className="button mr-4" href="/login">
-          Login
-        </Link>
-      )}
+    <div className="bg-black">
+      <div className="flex items-center justify-between py-4 max-w-[1500px] mx-auto px-4">
+        <h1 className="text-white">BloodConnect</h1>
+        {session ? (
+          <button className="button mr-4" onClick={() => signOut()}>
+            Logout
+          </button>
+        ) : (
+          <Link className="button mr-4" href="/login">
+            Login
+          </Link>
+        )}
+      </div>
     </div>
   );
 };
