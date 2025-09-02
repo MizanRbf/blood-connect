@@ -6,12 +6,12 @@
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: #00f7ff;
-  --color-secondary: #006366;
+  --color-primary: #ff0000;
+  --color-secondary: #3b0000;
 }
 
 .button{
-  @apply bg-secondary px-4 py-2 rounded text-white font-bold cursor-pointer hover:bg-white hover:text-secondary duration-500;
+  @apply bg-primary px-4 py-2 rounded text-white font-bold cursor-pointer hover:bg-red-800  duration-500;
 }
 
 
