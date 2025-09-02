@@ -4,6 +4,7 @@ import Link from "next/link";
 import React from "react";
 import { signOut } from "next-auth/react";
 import Logo from "../Logo/Logo";
+import LargeDevice from "./LargeDevice";
 
 const Navbar = () => {
   const { data: session, status } = useSession();
@@ -12,6 +13,10 @@ const Navbar = () => {
       <div className="flex items-center justify-between py-3 max-w-[1800px] mx-auto px-4 ">
         {/* Logo */}
         <Logo></Logo>
+
+        {/* Menu Items For Large Device */}
+        <LargeDevice></LargeDevice>
+        {/* Login Button */}
         {session ? (
           <button className="button mr-4" onClick={() => signOut()}>
             Logout
