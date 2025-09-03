@@ -8,23 +8,36 @@ const donors = () => {
   const [donorsInfo, setDonorsInfo] = useState([]);
   const [filteredDonors, setFilteredDonors] = useState([]);
   const [selectedBlood, setSelectedBlood] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // Handle Search
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setSearchTerm(e.target.value.toLowerCase());
+  };
 
   // Handle Filter
   const handleFilter = (e) => {
     e.preventDefault();
-    const value = e.target.value;
-    setSelectedBlood(value);
+    setSelectedBlood(e.target.value);
+  };
 
-    // Filter
-    if (value === "") {
-      setFilteredDonors(donorsInfo);
-    } else {
-      const filtered = donorsInfo.filter(
-        (singleDonor) => singleDonor.blood_group === value
+  useEffect(() => {
+    let filtered = donorsInfo;
+
+    if (selectedBlood !== "") {
+      filtered = filtered.filter(
+        (singleDonor) => singleDonor.blood_group === selectedBlood
       );
       setFilteredDonors(filtered);
     }
-  };
+    if (searchTerm !== "") {
+      filtered = filtered.filter((searchValue) =>
+        searchValue.location.toLowerCase().includes(searchTerm)
+      );
+      setFilteredDonors(filtered);
+    }
+  }, [selectedBlood, searchTerm, donorsInfo]);
 
   // All Donors Info
   useEffect(() => {
@@ -52,6 +65,8 @@ const donors = () => {
             name="Search"
             placeholder="Search By Location"
             className="border w-50 rounded-sm p-2"
+            value={searchTerm}
+            onChange={handleSearch}
           />
         </form>
 
