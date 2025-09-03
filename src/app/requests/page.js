@@ -8,23 +8,37 @@ const Requests = () => {
   const [requestInfo, setRequestInfo] = useState([]);
   const [filteredRequests, setFilteredRequests] = useState([]);
   const [selectedBlood, setSelectedBlood] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   // Handle Filter
   const handleFilter = (e) => {
     e.preventDefault();
-    const value = e.target.value;
-    setSelectedBlood(value);
+    setSelectedBlood(e.target.value);
+  };
 
-    // Filter
-    if (value === "") {
-      setFilteredRequests(requestInfo);
-    } else {
-      const filtered = requestInfo.filter(
-        (singleRequest) => singleRequest.blood_group === value
+  // Handle Search
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setSearchTerm(e.target.value.toLowerCase());
+  };
+
+  // Filter
+  useEffect(() => {
+    let filtered = requestInfo;
+    if (selectedBlood !== "") {
+      filtered = filtered.filter(
+        (singleBlood) => singleBlood.blood_group === selectedBlood
       );
       setFilteredRequests(filtered);
     }
-  };
+
+    if (searchTerm !== "") {
+      filtered = filtered.filter((value) =>
+        value.location.toLowerCase().includes(searchTerm)
+      );
+      setFilteredRequests(filtered);
+    }
+  }, [selectedBlood, searchTerm, requestInfo]);
 
   useEffect(() => {
     fetch("/RequestsData.json")
@@ -51,6 +65,8 @@ const Requests = () => {
             name="Search"
             placeholder="Search By Location"
             className="border w-50 rounded-sm p-2"
+            value={searchTerm}
+            onChange={handleSearch}
           />
         </form>
 
