@@ -6,11 +6,33 @@ import RequestCard from "../Components/Requests/RequestCard";
 
 const Requests = () => {
   const [requestInfo, setRequestInfo] = useState([]);
+  const [filteredRequests, setFilteredRequests] = useState([]);
+  const [selectedBlood, setSelectedBlood] = useState("");
+
+  // Handle Filter
+  const handleFilter = (e) => {
+    e.preventDefault();
+    const value = e.target.value;
+    setSelectedBlood(value);
+
+    // Filter
+    if (value === "") {
+      setFilteredRequests(requestInfo);
+    } else {
+      const filtered = requestInfo.filter(
+        (singleRequest) => singleRequest.blood_group === value
+      );
+      setFilteredRequests(filtered);
+    }
+  };
 
   useEffect(() => {
     fetch("/RequestsData.json")
       .then((res) => res.json())
-      .then((data) => setRequestInfo(data));
+      .then((data) => {
+        setRequestInfo(data);
+        setFilteredRequests(data);
+      });
   }, []);
   return (
     <div className="max-w-[1500px] mx-auto px-4 pt-20 mb-20">
@@ -19,8 +41,41 @@ const Requests = () => {
 
       {/* Title */}
       <Title title="Requests"></Title>
+
+      {/* Filter and Sort */}
+      <div className="flex justify-between mb-10 items-center">
+        {/* Searchbar */}
+        <form className="">
+          <input
+            type="search"
+            name="Search"
+            placeholder="Search By Location"
+            className="border w-50 rounded-sm p-2"
+          />
+        </form>
+
+        {/* Filter */}
+        <select
+          className="border w-50 rounded-sm p-2"
+          value={selectedBlood}
+          onChange={handleFilter}
+        >
+          <option value="" disabled>
+            Filter By Blood Group
+          </option>
+          <option value="A+">A+</option>
+          <option value="B+">B+</option>
+          <option value="A-">A-</option>
+          <option value="B-">B-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+        </select>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {requestInfo.map((request) => (
+        {filteredRequests.map((request) => (
           <RequestCard key={request.id} request={request}></RequestCard>
         ))}
       </div>
