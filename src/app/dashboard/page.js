@@ -1,15 +1,12 @@
 import React from "react";
-import Title from "../Components/Title/Title";
-import Navbar from "../Components/Navbar/Navbar";
+import RightSide from "../Components/Dashboard/RightSide";
 
-const Dashboard = () => {
+const DashboardHome = () => {
   return (
-    <div className="pt-20">
-      {/* Navbar */}
-      <Navbar></Navbar>
-      <Title title="Dashboard"></Title>
+    <div className="">
+      <RightSide></RightSide>
     </div>
   );
 };
 
-export default Dashboard;
+export default DashboardHome;

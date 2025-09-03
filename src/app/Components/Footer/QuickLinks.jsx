@@ -5,21 +5,18 @@ const QuickLinks = () => {
   return (
     <div>
       <h2 className="mb-4">Quick Links</h2>
-      <ul className="flex flex-col">
+      <ul className="flex flex-col *:hover:underline">
         <Link className="font-bold" href="/">
           Home
         </Link>
-        <Link className="font-bold" href="/">
-          About
-        </Link>
-        <Link className="font-bold" href="/">
+        <Link className="font-bold" href="/donors">
           Donors
         </Link>
-        <Link className="font-bold" href="/">
-          Contact
+        <Link className="font-bold" href="/requests">
+          Requests
         </Link>
-        <Link className="font-bold" href="/">
-          FAQs
+        <Link className="font-bold" href="/dashboard">
+          Dashboard
         </Link>
       </ul>
     </div>
