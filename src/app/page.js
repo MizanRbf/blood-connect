@@ -11,29 +11,35 @@ import Testimonials from "./Components/Testimonials/Testimonials";
 export default function Home() {
   return (
     <div>
-      {/* Navbar */}
-      <Navbar></Navbar>
+      <header>
+        {/* Navbar */}
+        <Navbar></Navbar>
 
-      {/* Hero */}
-      <Hero></Hero>
+        {/* Hero */}
+        <Hero></Hero>
+      </header>
 
-      {/* Urgent Requests */}
-      <UrgentRequests></UrgentRequests>
+      <main>
+        {/* Urgent Requests */}
+        <UrgentRequests></UrgentRequests>
 
-      {/* Top Available Donors */}
-      <TopAvailableDonors></TopAvailableDonors>
+        {/* Top Available Donors */}
+        <TopAvailableDonors></TopAvailableDonors>
 
-      {/* How It Works */}
-      <HowItWorks></HowItWorks>
+        {/* How It Works */}
+        <HowItWorks></HowItWorks>
 
-      {/* Why Donate Blood? */}
-      <WhyDonateBlood></WhyDonateBlood>
+        {/* Why Donate Blood? */}
+        <WhyDonateBlood></WhyDonateBlood>
 
-      {/* Testimonials */}
-      <Testimonials></Testimonials>
+        {/* Testimonials */}
+        <Testimonials></Testimonials>
+      </main>
 
-      {/* Footer */}
-      <Footer></Footer>
+      <footer>
+        {/* Footer */}
+        <Footer></Footer>
+      </footer>
     </div>
   );
 }
