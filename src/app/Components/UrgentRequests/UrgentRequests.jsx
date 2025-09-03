@@ -3,7 +3,7 @@ import Title from "../Title/Title";
 
 const UrgentRequests = () => {
   return (
-    <div className="max-w-[1500px] mx-auto px-4 pt-20 pb-10">
+    <div className="max-w-[1500px] mx-auto px-4 pt-10 pb-10">
       <Title title="Urgent Requests"></Title>
     </div>
   );

@@ -5,8 +5,14 @@ const LargeDevice = () => {
   return (
     <div>
       <ul className="space-x-4">
+        <Link className="font-bold" href="/">
+          Home
+        </Link>
         <Link className="font-bold" href="/donors">
           Donors
+        </Link>
+        <Link className="font-bold" href="/requests">
+          Requests
         </Link>
         <Link className="font-bold" href="/dashboard">
           Dashboard
