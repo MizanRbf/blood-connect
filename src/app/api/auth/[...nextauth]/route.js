@@ -16,10 +16,8 @@ const handler = NextAuth({
         },
       },
       async authorize(credentials) {
-        console.log(credentials);
         const user = await loginUser(credentials);
         if (user) return user;
-        console.log(credentials);
         return null;
       },
     }),
