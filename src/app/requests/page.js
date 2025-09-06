@@ -41,11 +41,11 @@ const Requests = () => {
   }, [selectedBlood, searchTerm, requestInfo]);
 
   useEffect(() => {
-    fetch("/RequestsData.json")
+    fetch("http://localhost:3000/api/requests")
       .then((res) => res.json())
       .then((data) => {
-        setRequestInfo(data);
-        setFilteredRequests(data);
+        setRequestInfo(data.requests);
+        setFilteredRequests(data.requests);
       });
   }, []);
   return (
