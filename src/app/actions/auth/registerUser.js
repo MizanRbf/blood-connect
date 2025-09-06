@@ -8,7 +8,7 @@ export const registerUser = async (payload) => {
   const { email, password } = payload;
   if (!email || !password) return { success: false };
 
-  const userCollection = dbConnect("users");
+  const userCollection = await dbConnect("users");
 
   const user = await userCollection.findOne({ email: payload.email });
 

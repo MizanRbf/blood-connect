@@ -93,7 +93,7 @@ const donors = () => {
       {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {filteredDonors.map((donor) => (
-          <DonorCard key={donor.id} donor={donor}></DonorCard>
+          <DonorCard key={donor._id} donor={donor}></DonorCard>
         ))}
       </div>
     </div>

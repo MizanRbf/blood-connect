@@ -3,6 +3,10 @@ import { NextResponse } from "next/server";
 
 export const GET = async (req, { params }) => {
   try {
+    if (!params.email) {
+      return NextResponse.json({ success: false, donors: [] }, { status: 400 });
+    }
+
     const donorCollection = await dbConnect("donors");
 
     const donorsByEmail = await donorCollection
@@ -17,6 +21,7 @@ export const GET = async (req, { params }) => {
     return NextResponse.json(
       {
         success: false,
+        donors: [],
         error: error.message,
       },
       { status: 500 }
