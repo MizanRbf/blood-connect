@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 const PostDonorForm = () => {
   const [loading, setLoading] = useState(false);
@@ -20,13 +21,25 @@ const PostDonorForm = () => {
 
       const data = await res.json();
       if (data.success) {
-        alert("success");
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Data inserted successfully!",
+        });
+        form.reset();
       } else {
-        console.log(data.error);
-        alert("failed");
+        Swal.fire({
+          icon: "error",
+          title: "Failed",
+          text: data.error || "Something went wrong!",
+        });
       }
     } catch (error) {
-      alert("error");
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: error.message || "Something went wrong!",
+      });
     } finally {
       setLoading(false);
     }
