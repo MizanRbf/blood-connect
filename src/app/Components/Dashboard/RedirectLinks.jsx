@@ -22,8 +22,9 @@ const RedirectLinks = () => {
             <TiArrowBackOutline /> Back to Home
           </button>
         </Link>
+
         <button
-          onClick={() => signOut()}
+          onClick={() => signOut({ callbackUrl: "/login" })}
           className="font-bold bg-white text-black text-xl text-center py-4 w-full flex items-center justify-center gap-3 cursor-pointer"
         >
           <BiLogOut />

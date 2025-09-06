@@ -1,15 +1,23 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
 
-export default function dbConnect(collectionName) {
-  const uri = process.env.NEXT_PUBLIC_MONGODB_URI;
+const uri = process.env.NEXT_PUBLIC_MONGODB_URI;
 
-  const client = new MongoClient(uri, {
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: true,
-      deprecationErrors: true,
-    },
-  });
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  },
+});
 
-  return client.db(process.env.DB_NAME).collection(collectionName);
+let clientPromise;
+
+export default async function dbConnect(collectionName) {
+  if (!clientPromise) {
+    clientPromise = client.connect();
+  }
+
+  const connectedClient = await clientPromise;
+
+  return connectedClient.db(process.env.DB_NAME).collection(collectionName);
 }

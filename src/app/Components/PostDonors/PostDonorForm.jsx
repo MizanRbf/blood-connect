@@ -1,12 +1,47 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 
 const PostDonorForm = () => {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    const form = e.target;
+    const formData = new FormData(form);
+    const donorsData = Object.fromEntries(formData.entries());
+
+    try {
+      const res = await fetch("http://localhost:3000/api/donors", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(donorsData),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        alert("success");
+      } else {
+        console.log(data.error);
+        alert("failed");
+      }
+    } catch (error) {
+      alert("error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div>
-      <form className="bg-gray-100 border-base-300 rounded-box w-lg border p-4 space-y-5 mx-auto">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-gray-100 border-base-300 rounded-box w-lg border p-4 space-y-5 mx-auto"
+      >
         {/* Name */}
         <input
           type="text"
+          name="name"
           className="bg-white px-3 py-2 rounded-sm w-full "
           placeholder="Your Name"
         />
@@ -14,6 +49,7 @@ const PostDonorForm = () => {
         {/* Blood Group */}
         <input
           type="text"
+          name="blood_group"
           className="bg-white px-3 py-2 rounded-sm w-full "
           placeholder="Your Blood Group"
         />
@@ -21,6 +57,7 @@ const PostDonorForm = () => {
         {/* Location */}
         <input
           type="text"
+          name="location"
           className="bg-white px-3 py-2 rounded-sm w-full "
           placeholder="Your Current Location"
         />
@@ -28,12 +65,14 @@ const PostDonorForm = () => {
         {/* Contact Number */}
         <input
           type="text"
+          name="contact_number"
           className="bg-white px-3 py-2 rounded-sm w-full "
           placeholder="Your Contact Number"
         />
         {/* Age */}
         <input
           type="text"
+          name="age"
           className="bg-white px-3 py-2 rounded-sm w-full "
           placeholder="Your Age"
         />
@@ -41,9 +80,17 @@ const PostDonorForm = () => {
         {/* Gender */}
         <input
           type="text"
+          name="gender"
           className="bg-white px-3 py-2 rounded-sm w-full "
           placeholder="Your Gender"
         />
+
+        <button
+          type="submit"
+          className="bg-secondary text-white w-full rounded-sm py-2 font-bold"
+        >
+          Post Now
+        </button>
       </form>
     </div>
   );
