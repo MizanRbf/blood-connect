@@ -15,6 +15,12 @@ const RedirectLinks = () => {
         <Link className="font-bold text-xl" href="/dashboard/postRequests">
           Post Request
         </Link>
+        <Link className="font-bold text-xl" href="/dashboard/myDonorPosts">
+          My Donor Posts
+        </Link>
+        <Link className="font-bold text-xl" href="/dashboard/myRequestPosts">
+          My Request Posts
+        </Link>
       </ul>
       <div className="">
         <Link href="/">
