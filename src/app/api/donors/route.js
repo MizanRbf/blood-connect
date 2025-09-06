@@ -1,6 +1,7 @@
 import dbConnect from "@/lib/dbConnect";
 import { NextResponse } from "next/server";
 
+// POST Method
 export async function POST(req) {
   try {
     const donorData = await req.json();
@@ -21,6 +22,7 @@ export async function POST(req) {
   }
 }
 
+// GET Method
 export async function GET() {
   try {
     const donorCollection = await dbConnect("donors");

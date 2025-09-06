@@ -100,7 +100,7 @@ const PostDonorForm = () => {
 
         <button
           type="submit"
-          className="bg-secondary text-white w-full rounded-sm py-2 font-bold"
+          className="bg-secondary text-white w-full rounded-sm py-2 font-bold cursor-pointer"
         >
           Post Now
         </button>

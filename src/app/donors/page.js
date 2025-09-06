@@ -41,11 +41,11 @@ const donors = () => {
 
   // All Donors Info
   useEffect(() => {
-    fetch("/DonorsData.json")
+    fetch("http://localhost:3000/api/donors")
       .then((res) => res.json())
       .then((data) => {
-        setDonorsInfo(data);
-        setFilteredDonors(data);
+        setDonorsInfo(data.donors);
+        setFilteredDonors(data.donors);
       });
   }, []);
   return (
