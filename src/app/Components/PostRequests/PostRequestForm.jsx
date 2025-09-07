@@ -1,15 +1,18 @@
 "use client";
+import { useSession } from "next-auth/react";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 
 const PostRequestForm = () => {
   const [loading, setLoading] = useState(false);
+  const { data: session } = useSession();
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     const form = e.target;
     const formData = new FormData(form);
     const requestData = Object.fromEntries(formData.entries());
+    requestData.email = session?.user?.email;
 
     try {
       const res = await fetch("http://localhost:3000/api/requests", {
