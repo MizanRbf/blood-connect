@@ -14,16 +14,18 @@ export const GET = async (req, { params }) => {
       );
     }
 
-    const donorCollection = await dbConnect("requests");
+    const requestCollection = await dbConnect("requests");
 
     let requests = [];
 
     if (/^[0-9a-fA-F]{24}$/.test(param)) {
       // Search By Id
-      const donor = await donorCollection.findOne({ _id: new ObjectId(param) });
-      if (donor) requests.push(donor);
+      const request = await requestCollection.findOne({
+        _id: new ObjectId(param),
+      });
+      if (request) requests.push(request);
     } else if (param.includes("@")) {
-      requests = await donorCollection.find({ email: param }).toArray();
+      requests = await requestCollection.find({ email: param }).toArray();
     }
 
     return NextResponse.json({
@@ -56,14 +58,14 @@ export const DELETE = async (req, { params }) => {
       );
     }
 
-    const donorCollection = await dbConnect("requests");
+    const requestCollection = await dbConnect("requests");
 
-    const result = await donorCollection.deleteOne({
+    const result = await requestCollection.deleteOne({
       _id: new ObjectId(param),
     });
 
     if (result.deletedCount === 1) {
-      return NextResponse.json({ success: true, message: "Donor Deleted" });
+      return NextResponse.json({ success: true, message: "request Deleted" });
     } else {
       return NextResponse.json({ success: false, message: "Not Found" });
     }

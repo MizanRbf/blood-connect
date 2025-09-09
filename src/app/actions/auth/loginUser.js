@@ -18,5 +18,9 @@ export const loginUser = async (payload) => {
     id: user._id.toString(),
     name: user.name || "No Name",
     email: user.email,
+    age: user.age,
+    bloodGroup: user.bloodGroup,
+    number: user.number,
+    location: user.location,
   };
 };

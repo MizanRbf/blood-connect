@@ -17,11 +17,16 @@ const handler = NextAuth({
       },
       async authorize(credentials) {
         const user = await loginUser(credentials);
-        if (user) return user;
+        if (user) {
+          return {
+            id: user.id?.toString(),
+            name: user.name,
+            email: user.email,
+          };
+        }
         return null;
       },
     }),
   ],
 });
-
 export { handler as GET, handler as POST };
