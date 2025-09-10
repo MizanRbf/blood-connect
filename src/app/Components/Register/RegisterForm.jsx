@@ -16,10 +16,12 @@ const RegisterForm = () => {
     const bloodGroup = form.bloodGroup.value;
     const number = form.number.value;
     const location = form.location.value;
+    const photo = form.photo.value;
     const result = await registerUser({
       name,
       email,
       password,
+      photo,
       age,
       bloodGroup,
       number,
@@ -69,6 +71,12 @@ const RegisterForm = () => {
         name="password"
         className="bg-white p-3 rounded-sm w-full"
         placeholder="Create A Password"
+      />
+      <input
+        type="text"
+        name="photo"
+        className="bg-white p-3 rounded-sm w-full"
+        placeholder="Put a Photo URL"
       />
       <input
         type="number"

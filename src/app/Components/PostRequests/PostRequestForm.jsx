@@ -13,6 +13,7 @@ const PostRequestForm = () => {
     const formData = new FormData(form);
     const requestData = Object.fromEntries(formData.entries());
     requestData.email = session?.user?.email;
+    requestData.createdAt = new Date();
 
     try {
       const res = await fetch("http://localhost:3000/api/requests", {
