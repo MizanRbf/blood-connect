@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const reqCard = ({ req }) => {
+const DonorCard2 = ({ donor }) => {
   const {
     id,
     name,
@@ -14,7 +14,7 @@ const reqCard = ({ req }) => {
     last_donation_date,
     available,
     createdAt,
-  } = req;
+  } = donor;
   return (
     <div className="border rounded-sm p-4">
       <h3>{name}</h3>
@@ -32,11 +32,11 @@ const reqCard = ({ req }) => {
         {location}
       </p>
 
-      <Link href={`/requests/${req.id}`}>
+      <Link href={`/donors/${donor.id}`}>
         <button className="button">See Details</button>
       </Link>
     </div>
   );
 };
 
-export default reqCard;
+export default DonorCard2;
