@@ -16,7 +16,7 @@ const DonorCard2 = ({ donor }) => {
     createdAt,
   } = donor;
   return (
-    <div className="border rounded-sm p-4">
+    <div className="shadow-sm rounded-xl p-4 space-y-1">
       <h3>{name}</h3>
 
       <p className="">
@@ -32,9 +32,11 @@ const DonorCard2 = ({ donor }) => {
         {location}
       </p>
 
-      <Link href={`/donors/${donor.id}`}>
-        <button className="button">See Details</button>
-      </Link>
+      <div className="flex justify-end mt-6">
+        <Link href={`/donors/${donor.id}`}>
+          <button className="button">See Details</button>
+        </Link>
+      </div>
     </div>
   );
 };
