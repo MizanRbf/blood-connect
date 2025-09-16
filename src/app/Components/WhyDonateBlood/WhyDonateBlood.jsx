@@ -32,10 +32,10 @@ const WhyDonateBlood = () => {
   return (
     <div className="max-w-[1500px] mx-auto px-4 pt-20 pb-10">
       <Title title="Why Donate Blood?"></Title>
-      <section className=" p-6 md:p-12 bg-red-50 rounded-2xl shadow-md mt-12">
+      <section className=" p-6 md:p-12  rounded-2xl shadow-md mt-12">
         <header className="text-center mb-10"></header>
 
-        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 ">
           {reasons.map((r) => {
             const Icon = r.icon;
             return (

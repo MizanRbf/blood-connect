@@ -16,7 +16,7 @@ const reqCard = ({ req }) => {
     createdAt,
   } = req;
   return (
-    <div className="border rounded-sm p-4">
+    <div className="shadow-sm rounded-xl p-4 space-y-1 border border-gray-100">
       <h3>{name}</h3>
 
       <p className="">
@@ -31,10 +31,11 @@ const reqCard = ({ req }) => {
         <span className="font-bold">Location: </span>
         {location}
       </p>
-
-      <Link href={`/requests/${req.id}`}>
-        <button className="button">See Details</button>
-      </Link>
+      <div className="flex justify-end mt-6">
+        <Link href={`/requests/${req.id}`}>
+          <button className="button">See Details</button>
+        </Link>
+      </div>
     </div>
   );
 };
