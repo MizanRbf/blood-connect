@@ -26,7 +26,8 @@ const Testimonials = () => {
     },
   ];
   return (
-    <div className="max-w-[1500px] mx-auto px-4 pt-20 pb-10">
+    <div></div>
+    <div className="max-w-[1500px] mx-auto px-4 pt-20 pb-10 bg-[url(/assets/bg1.jpg)] bg-center bg-cover">
       <Title title="Testimonials"></Title>
       <section className=" p-6 md:p-12 bg-white rounded-2xl shadow-md mt-12">
         <div className="grid gap-6 grid-cols-1 md:grid-cols-3">
