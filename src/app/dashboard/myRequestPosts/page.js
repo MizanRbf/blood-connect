@@ -21,7 +21,7 @@ const MyRequestPosts = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const res = await fetch(`http://localhost:3000/api/requests/${id}`, {
+        const res = await fetch(`/api/requests/${id}`, {
           method: "DELETE",
         });
 
@@ -58,7 +58,7 @@ const MyRequestPosts = () => {
   // Fetch requests
   useEffect(() => {
     if (!session?.user?.email) return;
-    fetch(`http://localhost:3000/api/requests/${session?.user?.email}`)
+    fetch(`/api/requests/${session?.user?.email}`)
       .then((res) => {
         if (!res.ok) throw new Error("Network response was not ok");
         return res.json();

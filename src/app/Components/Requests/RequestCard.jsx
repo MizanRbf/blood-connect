@@ -15,22 +15,23 @@ const RequestCard = ({ request }) => {
     createdAt,
   } = request;
   return (
-    <div className="border rounded-sm p-4">
-      <h3>{name}</h3>
-      <p className="">
-        <span className="font-bold">Blood Group: </span>
-        {blood_group}
-      </p>
-      <p className="">
-        <span className="font-bold">Contact Number: </span>
-        {contact_number}
-      </p>
-      <p className="">
-        <span className="font-bold">Location: </span>
-        {location}
-      </p>
-
-      <Link href={`/requests/${request.id}`}>
+    <div className="border border-gray-200 shadow-lg rounded-lg p-4">
+      <div className="space-y-1 mb-3">
+        <h3>{name}</h3>
+        <p className="">
+          <span className="font-bold">Blood Group: </span>
+          {blood_group}
+        </p>
+        <p className="">
+          <span className="font-bold">Contact Number: </span>
+          {contact_number}
+        </p>
+        <p className="">
+          <span className="font-bold">Location: </span>
+          {location}
+        </p>
+      </div>
+      <Link href={`/requests/${request.id}`} className="flex justify-end">
         <button className="button">See Details</button>
       </Link>
     </div>

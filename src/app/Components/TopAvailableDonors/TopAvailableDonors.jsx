@@ -7,7 +7,7 @@ const TopAvailableDonors = () => {
   const [donors, setDonors] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/topAvailableDonors")
+    fetch("/api/topAvailableDonors")
       .then((res) => res.json())
       .then((data) => setDonors(data.donors));
   });

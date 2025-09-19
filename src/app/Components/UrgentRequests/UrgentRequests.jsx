@@ -7,7 +7,7 @@ const UrgentRequests = () => {
   const [requests, setRequests] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/urgentRequests")
+    fetch("/api/urgentRequests")
       .then((res) => res.json())
       .then((data) => setRequests(data.requests));
   });

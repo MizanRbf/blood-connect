@@ -16,24 +16,25 @@ const DonorCard = ({ donor }) => {
     createdAt,
   } = donor;
   return (
-    <div className="border rounded-sm p-4">
-      <h3>{name}</h3>
+    <div className="border border-gray-200 rounded-xl shadow-lg p-4">
+      <div className="space-y-1 mb-3 ">
+        <h3>{name}</h3>
 
-      <p className="">
-        <span className="font-bold">Blood Group: </span>
-        {blood_group}
-      </p>
-      <p className="">
-        <span className="font-bold">Contact Number: </span>
-        {contact_number}
-      </p>
-      <p className="">
-        <span className="font-bold">Location: </span>
-        {location}
-      </p>
-
-      <Link href={`/donors/${donor.id}`}>
-        <button className="button">See Details</button>
+        <p className="">
+          <span className="font-bold">Blood Group: </span>
+          {blood_group}
+        </p>
+        <p className="">
+          <span className="font-bold">Contact Number: </span>
+          {contact_number}
+        </p>
+        <p className="">
+          <span className="font-bold">Location: </span>
+          {location}
+        </p>
+      </div>
+      <Link href={`/donors/${donor.id}`} className="flex justify-end">
+        <button className="button ">See Details</button>
       </Link>
     </div>
   );

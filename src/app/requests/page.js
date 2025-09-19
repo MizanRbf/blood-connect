@@ -41,7 +41,7 @@ const Requests = () => {
   }, [selectedBlood, searchTerm, requestInfo]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/requests")
+    fetch("/api/requests")
       .then((res) => res.json())
       .then((data) => {
         setRequestInfo(data.requests);
@@ -64,7 +64,7 @@ const Requests = () => {
             type="search"
             name="Search"
             placeholder="Search By Location"
-            className="border w-50 rounded-sm p-2"
+            className="border border-gray-200 w-50 rounded-sm p-2"
             value={searchTerm}
             onChange={handleSearch}
           />
@@ -72,7 +72,7 @@ const Requests = () => {
 
         {/* Filter */}
         <select
-          className="border w-50 rounded-sm p-2"
+          className="border w-50 rounded-sm p-2 border-gray-200"
           value={selectedBlood}
           onChange={handleFilter}
         >

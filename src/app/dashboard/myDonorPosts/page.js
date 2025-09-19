@@ -21,7 +21,7 @@ const MyDonorPosts = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const res = await fetch(`http://localhost:3000/api/donors/${id}`, {
+        const res = await fetch(`/api/donors/${id}`, {
           method: "DELETE",
         });
 
@@ -58,7 +58,7 @@ const MyDonorPosts = () => {
   // Fetch Donors
   useEffect(() => {
     if (!session?.user?.email) return;
-    fetch(`http://localhost:3000/api/donors/${session?.user?.email}`)
+    fetch(`/api/donors/${session?.user?.email}`)
       .then((res) => {
         if (!res.ok) throw new Error("Network response was not ok");
         return res.json();

@@ -9,7 +9,7 @@ const RightSide = () => {
 
   useEffect(() => {
     if (!session?.user?.email) return;
-    fetch(`http://localhost:3000/api/users/${session?.user?.email}`)
+    fetch(`/api/users/${session?.user?.email}`)
       .then((res) => {
         if (!res.ok) throw new Error("Network response was not ok");
         return res.json();

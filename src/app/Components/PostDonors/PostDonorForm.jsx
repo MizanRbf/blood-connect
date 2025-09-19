@@ -16,7 +16,7 @@ const PostDonorForm = () => {
     donorsData.email = session?.user?.email;
 
     try {
-      const res = await fetch("http://localhost:3000/api/donors", {
+      const res = await fetch("/api/donors", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(donorsData),
