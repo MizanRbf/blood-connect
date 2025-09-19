@@ -4,7 +4,7 @@ import Title from "../Components/Title/Title";
 import DonorCard from "../Components/Donors/DonorCard";
 import Navbar from "../Components/Navbar/Navbar";
 
-const donors = () => {
+const Donors = () => {
   const [donorsInfo, setDonorsInfo] = useState([]);
   const [filteredDonors, setFilteredDonors] = useState([]);
   const [selectedBlood, setSelectedBlood] = useState("");
@@ -100,4 +100,4 @@ const donors = () => {
   );
 };
 
-export default donors;
+export default Donors;
