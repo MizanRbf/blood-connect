@@ -37,7 +37,7 @@ const HowItWorks = () => {
   return (
     <div className="max-w-[1500px] mx-auto px-4 pt-20 pb-10 ">
       <section className=" bg-white rounded-2xl shadow-md p-5">
-        <Title title="How It Works"></Title>
+        <Title title="How It Works" color="primary"></Title>
 
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((s) => {

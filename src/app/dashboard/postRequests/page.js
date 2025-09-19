@@ -6,7 +6,7 @@ const PostRequests = () => {
   return (
     <div>
       <div className="text-black">
-        <Title title="Post Requests"></Title>
+        <Title title="Post Requests" color="primary"></Title>
       </div>
       <PostRequestForm></PostRequestForm>
     </div>

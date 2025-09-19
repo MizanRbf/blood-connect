@@ -31,7 +31,7 @@ const WhyDonateBlood = () => {
   ];
   return (
     <div className="max-w-[1500px] mx-auto px-4 pt-20 pb-10">
-      <Title title="Why Donate Blood?"></Title>
+      <Title title="Why Donate Blood?" color="primary"></Title>
       <section className=" p-6 md:p-12  rounded-2xl shadow-md mt-12">
         <header className="text-center mb-10"></header>
 

@@ -9,7 +9,7 @@ const DonorDetails = () => {
       <Navbar></Navbar>
 
       {/* Title */}
-      <Title title="Donor Details"></Title>
+      <Title title="Donor Details" color="primary"></Title>
     </div>
   );
 };

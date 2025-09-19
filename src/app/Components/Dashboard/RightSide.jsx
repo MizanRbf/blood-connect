@@ -21,7 +21,7 @@ const RightSide = () => {
   }, [session]);
   return (
     <div className="">
-      <Title title="My Profile"></Title>
+      <Title title="My Profile" color="primary"></Title>
       <div className="flex justify-center mt-20">
         <div className="border border-gray-300 text-black p-10 rounded-xl shadow-2xl">
           <div className="flex items-center flex-col">

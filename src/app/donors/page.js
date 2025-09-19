@@ -54,7 +54,7 @@ const Donors = () => {
       <Navbar></Navbar>
 
       {/* Title */}
-      <Title title="Available Donors"></Title>
+      <Title title="Available Donors" color="primary"></Title>
 
       {/* Filter and Sort */}
       <div className="flex justify-between mb-10 items-center">

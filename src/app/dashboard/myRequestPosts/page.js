@@ -69,7 +69,7 @@ const MyRequestPosts = () => {
   return (
     <div className="px-6">
       <div className="text-black">
-        <Title title="My requests Posts"></Title>
+        <Title title="My requests Posts" color="primary"></Title>
         <div className="overflow-x-auto rounded-lg border border-gray-200 shadow-xl p-4">
           <table className="w-full">
             {/* head */}

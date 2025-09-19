@@ -5,7 +5,7 @@ import React from "react";
 const PostDonors = () => {
   return (
     <div className="text-black">
-      <Title title="Post Donors"></Title>
+      <Title title="Post Donors" color="primary"></Title>
       <PostDonorForm></PostDonorForm>
     </div>
   );

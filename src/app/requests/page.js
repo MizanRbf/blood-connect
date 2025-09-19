@@ -54,7 +54,7 @@ const Requests = () => {
       <Navbar></Navbar>
 
       {/* Title */}
-      <Title title="Requests"></Title>
+      <Title title="Requests" color="primary"></Title>
 
       {/* Filter and Sort */}
       <div className="flex justify-between mb-10 items-center">

@@ -9,7 +9,7 @@ const RequestDetails = () => {
       <Navbar></Navbar>
 
       {/* title */}
-      <Title title="Request Details"></Title>
+      <Title title="Request Details" color="primary"></Title>
     </div>
   );
 };
