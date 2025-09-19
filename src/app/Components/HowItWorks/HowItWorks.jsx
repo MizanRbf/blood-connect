@@ -35,41 +35,43 @@ const HowItWorks = () => {
     },
   ];
   return (
-    <div className="max-w-[1500px] mx-auto px-4 pt-20 pb-10 ">
-      <section className=" bg-white rounded-2xl shadow-md p-5">
-        <Title title="How It Works" color="primary"></Title>
+    <div className="bg-[url(/assets/bg6.jpg)]">
+      <div className="max-w-[1500px] mx-auto px-4 pt-20 pb-10 ">
+        <section className=" bg-white rounded-2xl shadow-md p-5">
+          <Title title="How It Works" color="primary"></Title>
 
-        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {steps.map((s) => {
-            const Icon = s.icon;
-            return (
-              <div
-                key={s.id}
-                className="flex flex-col bg-slate-50 rounded-xl p-6 ring-1 ring-slate-100 hover:shadow-lg transition-shadow"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center bg-white ring-1 ring-slate-200">
-                    <Icon className="w-6 h-6" aria-hidden="true" />
+          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            {steps.map((s) => {
+              const Icon = s.icon;
+              return (
+                <div
+                  key={s.id}
+                  className="flex flex-col bg-slate-50 rounded-xl p-6 ring-1 ring-slate-100 hover:shadow-lg transition-shadow"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center bg-white ring-1 ring-slate-200">
+                      <Icon className="w-6 h-6" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-medium">{s.title}</h3>
+                      <p className="text-xs text-slate-600">Step {s.id}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-medium">{s.title}</h3>
-                    <p className="text-xs text-slate-600">Step {s.id}</p>
-                  </div>
+
+                  <p className="mt-4 text-sm text-slate-700 flex-1">{s.desc}</p>
                 </div>
+              );
+            })}
+          </div>
 
-                <p className="mt-4 text-sm text-slate-700 flex-1">{s.desc}</p>
-              </div>
-            );
-          })}
-        </div>
-
-        <footer className="mt-8 text-center">
-          <p className="text-sm text-slate-600">
-            No transactions — just verified availability and direct contact.
-            Stay safe: verify identity before sharing sensitive info.
-          </p>
-        </footer>
-      </section>
+          <footer className="mt-8 text-center">
+            <p className="text-sm text-slate-600">
+              No transactions — just verified availability and direct contact.
+              Stay safe: verify identity before sharing sensitive info.
+            </p>
+          </footer>
+        </section>
+      </div>
     </div>
   );
 };

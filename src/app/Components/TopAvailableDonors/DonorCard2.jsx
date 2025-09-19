@@ -16,7 +16,7 @@ const DonorCard2 = ({ donor }) => {
     createdAt,
   } = donor;
   return (
-    <div className="shadow-sm rounded-xl p-4 space-y-1 border border-gray-100">
+    <div className="shadow-sm rounded-xl p-4 space-y-1 border border-gray-100 bg-[#000000ab] text-white">
       <h3>{name}</h3>
 
       <p className="">
