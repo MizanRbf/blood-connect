@@ -35,7 +35,7 @@ const HowItWorks = () => {
     },
   ];
   return (
-    <div className="bg-[url(/assets/bg6.jpg)] bg-center bg-cover">
+    <div className="bg-[url(/assets/bg6.jpg)] bg-center bg-cover pb-20">
       <div className="max-w-[1500px] mx-auto px-4 pt-20 pb-10 ">
         <Title title="How It Works" color="primary"></Title>
 

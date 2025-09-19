@@ -13,7 +13,7 @@ const UrgentRequests = () => {
   });
 
   return (
-    <div className="bg-[url(/assets/bg4.jpg)] bg-center bg-cover">
+    <div className="bg-[url(/assets/bg4.jpg)] bg-center bg-cover pb-20">
       <div className="max-w-[1500px] mx-auto px-4 pt-10 pb-10">
         <Title title="Urgent Requests" color="primary"></Title>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">

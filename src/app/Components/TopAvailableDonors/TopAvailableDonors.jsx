@@ -13,7 +13,7 @@ const TopAvailableDonors = () => {
   });
 
   return (
-    <div className="bg-[url(/assets/bg5.jpg)] bg-center bg-cover">
+    <div className="bg-[url(/assets/bg5.jpg)] bg-center bg-cover pb-20">
       <div className="max-w-[1500px] mx-auto px-4 pt-10 pb-10">
         <Title title="Top Available Donors" color="black"></Title>
 

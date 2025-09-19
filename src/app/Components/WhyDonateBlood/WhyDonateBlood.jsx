@@ -30,9 +30,10 @@ const WhyDonateBlood = () => {
     },
   ];
   return (
-    <div className="max-w-[1500px] mx-auto px-4 pt-20 pb-10">
-      <Title title="Why Donate Blood?" color="primary"></Title>
-      <section className=" p-6 md:p-12  rounded-2xl shadow-md mt-12">
+    <div className="bg-[url(/assets/bg1.jpg)] bg-center bg-cover pb-10">
+      <div className="max-w-[1500px] mx-auto px-4 pt-20 pb-20">
+        <Title title="Why Donate Blood?" color="primary"></Title>
+
         <header className="text-center mb-10"></header>
 
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 ">
@@ -52,14 +53,7 @@ const WhyDonateBlood = () => {
             );
           })}
         </div>
-
-        <footer className="mt-10 text-center">
-          <p className="text-sm text-gray-700 font-medium">
-            Your single donation can bring hope, health, and happiness to
-            someone in need.
-          </p>
-        </footer>
-      </section>
+      </div>
     </div>
   );
 };

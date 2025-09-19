@@ -26,21 +26,21 @@ const Testimonials = () => {
     },
   ];
   return (
-    <div className="bg-[url(/assets/bg1.jpg)] bg-center bg-cover">
+    <div className="bg-[url(/assets/bg3.jpg)] bg-center bg-cover pb-20">
       <div className="max-w-[1500px] mx-auto px-4 pt-10 pb-10 ">
         <Title title="Testimonials" color="white"></Title>
-        <section className=" p-6 md:p-12 bg-[#00000041] rounded-2xl shadow-md mt-12">
+        <section className=" p-6 md:p-12 bg-[#000000a1] rounded-2xl shadow-md mt-12">
           <div className="grid gap-6 grid-cols-1 md:grid-cols-3">
             {testimonials.map((t) => (
               <div
                 key={t.id}
-                className="flex flex-col bg-[#ff505075] rounded-xl p-6 hover:shadow-lg transition-shadow"
+                className="flex flex-col bg-[#ffffffd8] rounded-xl p-6 hover:shadow-lg transition-shadow"
               >
-                <Quote className="w-8 h-8 text-white mb-3" />
-                <p className="text-sm text-white italic mb-4">“{t.feedback}”</p>
+                <Quote className="w-8 h-8 text-black mb-3" />
+                <p className="text-sm text-black italic mb-4">“{t.feedback}”</p>
                 <div className="mt-auto">
-                  <p className="font-medium text-white">{t.name}</p>
-                  <p className="text-xs text-white">{t.role}</p>
+                  <p className="font-medium text-black">{t.name}</p>
+                  <p className="text-xs text-black">{t.role}</p>
                 </div>
               </div>
             ))}
