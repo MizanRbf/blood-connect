@@ -30,7 +30,7 @@ const WhyDonateBlood = () => {
     },
   ];
   return (
-    <div className="bg-[url(/assets/bg1.jpg)] bg-center bg-cover pb-10">
+    <div className="pb-10 bg-gradient-to-r from-[#e6e6e6] to-[#dddddd]">
       <div className="max-w-[1500px] mx-auto px-4 pt-20 pb-20">
         <Title title="Why Donate Blood?" color="primary"></Title>
 

@@ -1,6 +1,8 @@
 import React from "react";
 import Title from "../Title/Title";
 import { Phone, User, Heart, Search, Edit3 } from "lucide-react";
+import HowItWorksCard from "./HowItWorksCard";
+import { FaArrowDown } from "react-icons/fa";
 const HowItWorks = () => {
   const steps = [
     {
@@ -39,28 +41,22 @@ const HowItWorks = () => {
       <div className="max-w-[1500px] mx-auto px-4 pt-20 pb-10 ">
         <Title title="How It Works" color="primary"></Title>
 
-        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {steps.map((s) => {
-            const Icon = s.icon;
-            return (
-              <div
-                key={s.id}
-                className="flex flex-col bg-slate-50 rounded-xl p-6 ring-1 ring-slate-100 hover:shadow-lg transition-shadow"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center bg-white ring-1 ring-slate-200">
-                    <Icon className="w-6 h-6" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium">{s.title}</h3>
-                    <p className="text-xs text-slate-600">Step {s.id}</p>
-                  </div>
-                </div>
+        <div className="flex justify-center">
+          <div className="relative grid grid-cols-2 gap-8">
+            {/* Vertical Line */}
+            <div className="absolute  left-1/2 transform -translate-x-1/2 h-full w-1 bg-green-500 rounded-full">
+              <FaArrowDown className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 text-green-500 text-xl" />
+            </div>
 
-                <p className="mt-4 text-sm text-slate-700 flex-1">{s.desc}</p>
-              </div>
-            );
-          })}
+            {/* Mapping */}
+            {steps.map((step, index) => (
+              <HowItWorksCard
+                step={step}
+                index={index}
+                key={index}
+              ></HowItWorksCard>
+            ))}
+          </div>
         </div>
       </div>
     </div>
