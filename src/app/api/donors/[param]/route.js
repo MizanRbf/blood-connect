@@ -13,20 +13,26 @@ export const GET = async (req, { params }) => {
 
     const donorCollection = await dbConnect("donors");
 
-    let donors = [];
-
     if (/^[0-9a-fA-F]{24}$/.test(param)) {
       // Search By Id
       const donor = await donorCollection.findOne({ _id: new ObjectId(param) });
-      if (donor) donors.push(donor);
-    } else if (param.includes("@")) {
-      donors = await donorCollection.find({ email: param }).toArray();
+      if (!donor) {
+        return NextResponse.json(
+          {
+            success: false,
+            donor: null,
+            message: "Not Found",
+          },
+          { status: 404 }
+        );
+      }
+      return NextResponse.json({ success: true, donor });
     }
 
-    return NextResponse.json({
-      success: true,
-      donors,
-    });
+    if (param.includes("@")) {
+      const donors = await donorCollection.find({ email: param }).toArray();
+      return NextResponse.json({ success: false, donor: null, donors: [] });
+    }
   } catch (error) {
     return NextResponse.json(
       {

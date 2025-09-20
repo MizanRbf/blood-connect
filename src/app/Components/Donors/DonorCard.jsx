@@ -33,7 +33,7 @@ const DonorCard = ({ donor }) => {
           {location}
         </p>
       </div>
-      <Link href={`/donors/${donor.id}`} className="flex justify-end">
+      <Link href={`/donors/${donor._id}`} className="flex justify-end">
         <button className="button ">See Details</button>
       </Link>
     </div>

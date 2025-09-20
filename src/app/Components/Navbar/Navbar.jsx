@@ -12,7 +12,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { data: session, status } = useSession();
   return (
-    <div className="bg-white fixed right-0 left-0 top-0 border-2 border-t-0 border-x-0 border-b-primary z-10">
+    <div className="bg-white fixed right-0 left-0 top-0 border-2 border-t-0 border-x-0 border-b-primary z-10 ">
       <div className="flex items-center justify-between py-3 max-w-[1800px] mx-auto px-4 ">
         {/* Logo */}
         <Logo></Logo>

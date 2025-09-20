@@ -1,23 +1,29 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 const LargeDevice = () => {
+  const pathname = usePathname();
+  const links = [
+    { href: "/", label: "Home" },
+    { href: "/donors", label: "Donors" },
+    { href: "/requests", label: "Requests" },
+    { href: "/dashboard", label: "Dashboard" },
+  ];
   return (
     <div>
-      <ul className="space-x-4">
-        <Link className="font-bold" href="/">
-          Home
+      {links.map((link) => (
+        <Link
+          key={link.href}
+          href={link.href}
+          className={`mr-5 font-bold ${
+            pathname === link.href ? "underline text-primary" : "text-black "
+          }`}
+        >
+          {link.label}
         </Link>
-        <Link className="font-bold" href="/donors">
-          Donors
-        </Link>
-        <Link className="font-bold" href="/requests">
-          Requests
-        </Link>
-        <Link className="font-bold" href="/dashboard">
-          Dashboard
-        </Link>
-      </ul>
+      ))}
     </div>
   );
 };

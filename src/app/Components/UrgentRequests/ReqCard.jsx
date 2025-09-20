@@ -16,7 +16,7 @@ const reqCard = ({ req }) => {
     createdAt,
   } = req;
   return (
-    <div className="shadow-sm rounded-xl p-4 space-y-1 bg-[#000000a1] border border-gray-100 text-white">
+    <div className="shadow-sm rounded-xl p-4 space-y-1 bg-[#d8d8d842] border border-gray-100 text-black">
       <h3>{name}</h3>
 
       <p className="">
