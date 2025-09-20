@@ -31,12 +31,14 @@ export const GET = async (req, { params }) => {
 
     if (param.includes("@")) {
       const donors = await donorCollection.find({ email: param }).toArray();
-      return NextResponse.json({ success: false, donor: null, donors: [] });
+      return NextResponse.json({ success: true, donors });
     }
+    return NextResponse.json({ success: false, donor: null, donors: [] });
   } catch (error) {
     return NextResponse.json(
       {
         success: false,
+        donor: null,
         donors: [],
         error: error.message,
       },

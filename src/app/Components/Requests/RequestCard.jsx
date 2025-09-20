@@ -31,7 +31,7 @@ const RequestCard = ({ request }) => {
           {location}
         </p>
       </div>
-      <Link href={`/requests/${request.id}`} className="flex justify-end">
+      <Link href={`/requests/${request._id}`} className="flex justify-end">
         <button className="button">See Details</button>
       </Link>
     </div>

@@ -16,22 +16,33 @@ export const GET = async (req, { params }) => {
 
     const requestCollection = await dbConnect("requests");
 
-    let requests = [];
-
     if (/^[0-9a-fA-F]{24}$/.test(param)) {
       // Search By Id
       const request = await requestCollection.findOne({
         _id: new ObjectId(param),
       });
-      if (request) requests.push(request);
-    } else if (param.includes("@")) {
-      requests = await requestCollection.find({ email: param }).toArray();
+      if (!request) {
+        return NextResponse.json(
+          { success: false, donor: null, message: "Not Found" },
+          { status: 404 }
+        );
+      }
+      return NextResponse.json({ success: true, request });
     }
 
-    return NextResponse.json({
-      success: true,
-      requests,
-    });
+    if (param.includes("@")) {
+      const requests = await requestCollection.find({ email: param }).toArray();
+      return NextResponse.json({ success: true, requests });
+    }
+    return NextResponse.json(
+      {
+        success: false,
+        message: "Not Found",
+        request: null,
+        requests: [],
+      },
+      { status: 500 }
+    );
   } catch (error) {
     return NextResponse.json(
       {
